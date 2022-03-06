@@ -71,7 +71,27 @@ export class TimesheetComponent implements OnInit {
       return totalHours + +employee[day]
     },0)
   }
+
   deleteEmployee(index:number):void {
     this.employees.splice(index,1)
+  }
+
+  isEnter(e:KeyboardEvent) {
+    
+    //need some help
+    // Why do I need to click out of the input to get feed back from validator???
+
+    if(e.code === 'Enter') {
+      if (this.employees.length === 0) {
+        this.addEmployee()
+        return
+      }
+      const notDuplicate = this.employees.every(employee => {
+         return (employee.name.toLowerCase() !== this.employeeNameFC.value.toLowerCase()) 
+      });
+      if (notDuplicate) {
+        this.addEmployee()
+      }
+    }
   }
 }

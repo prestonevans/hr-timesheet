@@ -4,7 +4,7 @@
 
         <mat-card>
             <mat-form-field>
-                <input matInput [formControl]="employeeNameFC" placeholder="Employee Name" type="text">
+                <input matInput (keydown)="isEnter($event)" [formControl]="employeeNameFC" placeholder="Employee Name" type="text">
                 <mat-error *ngIf="employeeNameFC.hasError('duplicate')">Duplicate Name</mat-error>
             </mat-form-field>
 

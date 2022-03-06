@@ -40,6 +40,10 @@ tr td:first-child {
 	text-overflow: ellipsis;
 }
 
+tr td {
+	border-bottom:1pt solid #C1C1C1;
+}
+
 .total-cell {
     text-align: center;
 }
@@ -61,9 +65,6 @@ td {
     padding: 10px 0px;
 }
 
-tr td {
-    border-bottom:1pt solid #C1C1C1;
-}
 
 mat-card {
 	max-width: 50rem;
@@ -77,4 +78,17 @@ mat-card:first-of-type {
 
 mat-card {
 	animation-name: slideLeft;
+}
+
+input::selection {
+	background-color: var(--primary-color);
+	color: var(--secondary-color);
+}
+
+input {
+	border: none;
+}
+
+input:focus {
+	outline: none;
 }
