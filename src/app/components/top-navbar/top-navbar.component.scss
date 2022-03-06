@@ -21,7 +21,16 @@ div {
     cursor: pointer;
 
 }
+
 mat-toolbar {
     background-color: transparent;
     border-bottom: 1px solid var(--secondary-color);
+    animation-name: powerOn;
+	animation-duration: var(--animation-delay);
+	animation-fill-mode: both;
+	animation-timing-function: var(--animation-timing-function);
+}
+
+mat-toolbar mat-toolbar {
+    border: none;
 }

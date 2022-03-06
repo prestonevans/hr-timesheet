@@ -2,6 +2,8 @@
 :root {
 	--primary-color: rgb(63, 80, 181);
 	--secondary-color: rgb(255, 255, 255);
+	--animation-delay: .7s;
+	--animation-timing-function: ease-out;
 }
 
 html,
@@ -36,6 +38,40 @@ mat-card {
 	background: #fff;
 	color: rgba(0, 0, 0, .87);
 	mix-blend-mode: lighten;
+	animation-name: slideIn;
+	animation-duration: var(--animation-delay);
+	animation-fill-mode: both;
+	animation-timing-function: var(--animation-timing-function);
 }
 
+@keyframes slideIn {
+	from {
+		opacity: 0;
+		transform: translateY(-100px);
+	}
+	to {
+		opacity: 1;
+	}
+}
 
+@keyframes slideLeft {
+	from {
+		opacity: 0;
+		transform: scale(0);
+	}
+	70% {
+		transform: scale(1.1);
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes powerOn {
+	from {
+		transform: scaleX(0);
+	}
+	to {
+		transform: scaleX(1);
+	}
+}
