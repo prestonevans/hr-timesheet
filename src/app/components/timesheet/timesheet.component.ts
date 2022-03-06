@@ -57,7 +57,7 @@ export class TimesheetComponent implements OnInit {
       let error = null;
       if (this.employees && this.employees.length) {
         this.employees.forEach(employee => {
-          if (employee.name.toLowerCase().replace(/ +/g,' ').trim() === control.value.toLowerCase().replace(/ +/g,' ').trim()) {
+          if (employee.name.toLowerCase() === control.value.toLowerCase().replace(/ +/g,' ').trim()) {
             error = {duplicate: true}
           }
         });
@@ -87,7 +87,7 @@ export class TimesheetComponent implements OnInit {
         return
       }
       const notDuplicate = this.employees.every(employee => {
-         return (employee.name.toLowerCase() !== this.employeeNameFC.value.toLowerCase()) 
+         return (employee.name.toLowerCase() !== this.employeeNameFC.value.toLowerCase().replace(/ +/g,' ').trim()) 
       });
       if (notDuplicate) {
         this.addEmployee()
