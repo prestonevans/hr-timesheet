@@ -11,6 +11,8 @@ body {
 body {
 	margin: 0;
 	font-family: Roboto, "Helvetica Neue", sans-serif;
+	background-image: linear-gradient(45deg, var(--primary-color), pink);
+	// background-attachment: fixed;
 }
 
 .main-container {
@@ -19,19 +21,20 @@ body {
 	height: calc(100% - 64px);
 	h2 {
 		color: var(--secondary-color);
-		font-size: clamp(1.75rem, 10vw, 4rem);
+		font-size: clamp(1.75rem, 8vw, 4rem);
 		line-height: initial;
 		margin: 0;
+		font-weight: 100;
+		margin-bottom: .25em;
 	}
 }
 
-
-body {
-	background: linear-gradient(45deg, var(--primary-color), pink);
-}
-
-.mat-card {
+mat-card {
+    width: 70vw;
+	overflow-x: scroll;
 	background: #fff;
 	color: rgba(0, 0, 0, .87);
 	mix-blend-mode: lighten;
 }
+
+

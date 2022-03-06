@@ -1,15 +1,18 @@
 mat-card {
     margin: auto;
-    width: 70%;
     max-width: 20rem;
-    margin: auto;
-    text-align: center;
+    background-color: transparent;
+    border: 2px solid var(--secondary-color);
 }
 
 mat-list-item:hover {
     background-color: #E0E0E0;
+    color: black;
     border-radius: 5px;
     cursor: pointer;
+}
+.mat-list-item {
+    color: var(--secondary-color);
 }
 
 

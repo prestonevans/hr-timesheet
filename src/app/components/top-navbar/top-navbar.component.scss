@@ -2,6 +2,11 @@
     font-size: 35px;
 }
 
+.mat-icon,
+div {
+    color: var(--secondary-color);
+}
+
 mat-icon {
     width: 35px;
     height: 35px;
@@ -14,4 +19,9 @@ mat-icon {
 div {
     margin-left: 10px;
     cursor: pointer;
+
+}
+mat-toolbar {
+    background-color: transparent;
+    border-bottom: 1px solid var(--secondary-color);
 }
