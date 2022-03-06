@@ -1,6 +1,9 @@
 mat-card {
-    width: 50%;
     margin: auto;
+    width: 70%;
+    max-width: 20rem;
+    margin: auto;
+    text-align: center;
 }
 
 mat-list-item:hover {
@@ -8,3 +11,5 @@ mat-list-item:hover {
     border-radius: 5px;
     cursor: pointer;
 }
+
+
