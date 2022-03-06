@@ -34,7 +34,11 @@ export class TimesheetComponent implements OnInit {
       this.employees.push({
         id: this.employeeId.toString(),
         departmentId: this.department?.id,
-        name: this.employeeNameFC.value.split(/ +/).map(name => name[0].toUpperCase() + name.slice(1)).join(' '),
+        name: this.employeeNameFC.value
+          .trim()
+          .split(/ +/g)
+          .map(name => name[0].toUpperCase() + name.slice(1))
+          .join(' '),
         payRate: Math.floor(Math.random() * 50) + 50,
         monday: 0,
         tuesday: 0,
