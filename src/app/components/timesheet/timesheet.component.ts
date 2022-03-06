@@ -34,7 +34,7 @@ export class TimesheetComponent implements OnInit {
       this.employees.push({
         id: this.employeeId.toString(),
         departmentId: this.department?.id,
-        name: this.employeeNameFC.value,
+        name: this.employeeNameFC.value.split(/ +/).map(name => name[0].toUpperCase() + name.slice(1)).join(' '),
         payRate: Math.floor(Math.random() * 50) + 50,
         monday: 0,
         tuesday: 0,
@@ -53,12 +53,21 @@ export class TimesheetComponent implements OnInit {
       let error = null;
       if (this.employees && this.employees.length) {
         this.employees.forEach(employee => {
-          if (employee.name.toLowerCase() === control.value.toLowerCase()) {
+          if (employee.name.toLowerCase().replace(/ +/g,' ').trim() === control.value.toLowerCase().replace(/ +/g,' ').trim()) {
             error = {duplicate: true}
           }
         });
       }
       return error
     }
+  }
+
+  getTotalHours(employee: Employee):number {
+    return this.weekdays.reduce((totalHours,day):number => {
+      return totalHours + +employee[day]
+    },0)
+  }
+  deleteEmployee(index:number):void {
+    this.employees.splice(index,1)
   }
 }

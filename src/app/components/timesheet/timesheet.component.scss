@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 h2 {
 	text-align: center;
 }
@@ -13,6 +14,7 @@ mat-form-field {
 .hours {
 	margin-top: 30px;
 }
+
 .hours {
 	min-height: 200px;
 	margin-top: 30px;
@@ -26,13 +28,39 @@ mat-form-field {
 	margin-left: 15px;
 	text-align: center;
 }
-tr :first-child,
+
 th {
 	text-transform: capitalize;
 }
+
 tr td:first-child {
-	max-width: 10ch !important;
+	max-width: 10ch;
 	overflow: hidden;
 	white-space: nowrap;
 	text-overflow: ellipsis;
+}
+
+.total-cell {
+    text-align: center;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+th {
+    border-bottom: 1px solid black;
+
+    &:not(:first-child) {
+        padding-left: 15px;
+    }
+}
+
+td {
+    text-align: center;
+    padding: 10px 0px;
+}
+
+tr td {
+    border-bottom:1pt solid #C1C1C1;
 }
