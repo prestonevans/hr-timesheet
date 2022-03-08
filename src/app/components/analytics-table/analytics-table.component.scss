@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+th {
+	text-transform: capitalize;
+}
+
+tr td:first-child {
+	max-width: 10ch;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+tr td {
+	border-bottom:1pt solid black;
+}
+
+.total-cell {
+    text-align: center;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+th {
+    border-bottom: 1px solid black;
+    &:not(:first-child) {
+        padding-left: 15px;
+    }
+}
+
+td {
+    text-align: center;
+    padding: 10px 0px;
+}

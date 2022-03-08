@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Employee } from 'src/app/interfaces/employee';
+import { Input } from '@angular/core';
 
 @Component({
   selector: 'app-analytics-table',
@@ -7,6 +8,9 @@ import { Employee } from 'src/app/interfaces/employee';
   styleUrls: ['./analytics-table.component.scss']
 })
 export class AnalyticsTableComponent implements OnInit {
+  @Input() 
+  departmentId: string | undefined;
+
   weekdays: string[] = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
   employees: Employee[] = [];
   employeeData: Employee[] = [
@@ -15,7 +19,7 @@ export class AnalyticsTableComponent implements OnInit {
         friday: 6,
         id: '1',
         monday: 4,
-        name: 'a',
+        name: 'Preston Evans',
         payRate: 70,
         saturday: 7,
         sunday: 6,
@@ -66,6 +70,13 @@ export class AnalyticsTableComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-  }
+    this.employees = this.employeeData.filter(employee => employee.departmentId === this.departmentId);
+}
+
+getTotalHours(employee: Employee): number {
+  return this.weekdays.reduce((hours,day):number => {
+    return hours + +employee[day]
+  },0)
+}
 
 }
