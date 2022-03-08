@@ -34,3 +34,6 @@ td {
     text-align: center;
     padding: 10px 0px;
 }
+.currency::before {
+    content: '$';
+}
