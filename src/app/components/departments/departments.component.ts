@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./departments.component.scss']
 })
 export class DepartmentsComponent implements OnInit {
-  departments: Department[];
+  departments: Department[] = [];
 
   constructor(
     private departmentsService: DepartmentsService,
@@ -17,7 +17,9 @@ export class DepartmentsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.departments =  this.departmentsService.departments
+    this.departmentsService.getDepartments().subscribe(departments => {
+      this.departments = departments;
+  });
   }
 
   goToDepartment(departmentId: string): void {
