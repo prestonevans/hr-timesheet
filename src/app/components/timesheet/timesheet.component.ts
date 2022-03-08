@@ -82,6 +82,7 @@ export class TimesheetComponent implements OnInit {
     // Why do I need to click out of the input to get feed back from validator???
 
     if(e.code === 'Enter') {
+      this.nameValidator()
       if (this.employees.length === 0) {
         this.addEmployee()
         return
