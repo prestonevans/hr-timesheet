@@ -39,11 +39,11 @@ export class TimesheetComponent implements OnInit {
         this.employees = employees;
       })
     ).subscribe();
-}
+  }
   addEmployee(): void {
     if (this.employeeNameFC.value) {
       this.employeeId++;
-    
+
       this.employees.push({
         // id: this.employeeId.toString(),
         departmentId: this.department?.id,
@@ -70,8 +70,8 @@ export class TimesheetComponent implements OnInit {
       let error = null;
       if (this.employees && this.employees.length) {
         this.employees.forEach(employee => {
-          if (employee.name.toLowerCase() === control.value.toLowerCase().replace(/ +/g,' ').trim()) {
-            error = {duplicate: true}
+          if (employee.name.toLowerCase() === control.value.toLowerCase().replace(/ +/g, ' ').trim()) {
+            error = { duplicate: true }
           }
         });
       }
@@ -79,29 +79,33 @@ export class TimesheetComponent implements OnInit {
     }
   }
 
-  getTotalHours(employee: Employee):number {
-    return this.weekdays.reduce((totalHours,day):number => {
+  getTotalHours(employee: Employee): number {
+    return this.weekdays.reduce((totalHours, day): number => {
       return totalHours + +employee[day]
-    },0)
+    }, 0)
   }
 
-  deleteEmployee(index:number):void {
-    this.employees.splice(index,1)
+  deleteEmployee(employee: Employee, index: number): void {
+    if (employee.id) {
+      this.employeeService.deleteEmployeeHours(employee);
+    }
+
+    this.employees.splice(index, 1);
   }
 
-  isEnter(e:KeyboardEvent) {
-    
+  isEnter(e: KeyboardEvent) {
+
     //need some help
     // Why do I need to click out of the input to get feed back from validator???
 
-    if(e.code === 'Enter') {
+    if (e.code === 'Enter') {
       this.nameValidator()
       if (this.employees.length === 0) {
         this.addEmployee()
         return
       }
       const notDuplicate = this.employees.every(employee => {
-         return (employee.name.toLowerCase() !== this.employeeNameFC.value.toLowerCase().replace(/ +/g,' ').trim()) 
+        return (employee.name.toLowerCase() !== this.employeeNameFC.value.toLowerCase().replace(/ +/g, ' ').trim())
       });
       if (notDuplicate) {
         this.addEmployee()
@@ -111,8 +115,12 @@ export class TimesheetComponent implements OnInit {
 
   submit(): void {
     this.employees.forEach(employee => {
-      this.employeeService.saveEmployeeHours(employee)
+      if (employee.id) {
+        this.employeeService.updateEmployeeHours(employee);
+      } else {
+        this.employeeService.saveEmployeeHours(employee);
+      }
     });
-    this.router.navigate(['./departments'])
+    this.router.navigate(['./departments']);
   }
 }

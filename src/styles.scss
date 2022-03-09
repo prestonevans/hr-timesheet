@@ -45,6 +45,10 @@ mat-card {
 	animation-timing-function: var(--animation-timing-function);
 }
 
+th {
+	white-space: nowrap;
+}
+
 @keyframes slideIn {
 	from {
 		opacity: 0;
