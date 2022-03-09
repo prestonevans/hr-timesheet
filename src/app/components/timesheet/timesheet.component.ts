@@ -15,6 +15,7 @@ import { Observable, switchMap, tap } from 'rxjs';
 export class TimesheetComponent implements OnInit {
   $departments: Observable<Department[]> | undefined;
   department: Department;
+  // employeeNameFC = new FormControl('', {validators: this.nameValidator(), updateOn: 'change'});
   employeeNameFC = new FormControl('', this.nameValidator());
   employees: Employee[] = [];
   employeeId = 0;
@@ -95,7 +96,6 @@ export class TimesheetComponent implements OnInit {
   }
 
   isEnter(e: KeyboardEvent) {
-
     //need some help
     // Why do I need to click out of the input to get feed back from validator???
 
