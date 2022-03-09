@@ -37,7 +37,11 @@ export class TimesheetComponent implements OnInit {
         return this.employeeService.getEmployeeHoursByDepartment(this.department.id);
       }),
       tap(employees => {
-        this.employees = employees;
+        this.employees = employees.sort((a,b) => {
+          if(a.name === b.name) return 0
+          if(a.name < b.name) return -1
+          return 1
+        });
       })
     ).subscribe();
   }
@@ -124,5 +128,9 @@ export class TimesheetComponent implements OnInit {
     });
     // Change route on submit button but not when enter name into timesheet
     if (route) this.router.navigate(['./departments']) 
+  }
+
+  sort():void {
+    this.employees = this.employees.reverse()
   }
 }
