@@ -13,7 +13,8 @@
             </button>
         </mat-card>
         <div class="sort-options">
-            <button (click)="sort()">sort</button>
+            <button *ngIf="!reversed" (click)="sort()">Sort Z-A</button>
+            <button *ngIf="reversed" (click)="sort()">Sort A-Z</button>
         </div>
 
         <mat-card class="hours">

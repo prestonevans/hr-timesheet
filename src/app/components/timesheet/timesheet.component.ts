@@ -20,7 +20,7 @@ export class TimesheetComponent implements OnInit {
   employees: Employee[] = [];
   employeeId = 0;
   weekdays: string[] = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
-
+  reversed: boolean = false;
   constructor(
     private route: ActivatedRoute,
     private departmentsService: DepartmentsService,
@@ -131,6 +131,7 @@ export class TimesheetComponent implements OnInit {
   }
 
   sort():void {
+    this.reversed = !this.reversed
     this.employees = this.employees.reverse()
   }
 }

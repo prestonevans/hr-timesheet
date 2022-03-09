@@ -108,5 +108,10 @@ input:focus {
 		text-transform: capitalize;
 		padding: .25em 1em;
 		border-radius: .5em;
+		transition: .2s ease-in;
+		&:hover {
+			cursor: pointer;
+			transform: scale(1.05);
+		}
 	}
 }
