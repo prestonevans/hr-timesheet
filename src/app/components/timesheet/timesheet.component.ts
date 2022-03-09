@@ -60,7 +60,8 @@ export class TimesheetComponent implements OnInit {
         friday: 0,
         saturday: 0,
         sunday: 0
-      });
+      })
+      this.submit()
       this.employeeNameFC.setValue('')
     }
   }
@@ -113,7 +114,7 @@ export class TimesheetComponent implements OnInit {
     }
   }
 
-  submit(): void {
+  submit(route?:string): void {
     this.employees.forEach(employee => {
       if (employee.id) {
         this.employeeService.updateEmployeeHours(employee);
@@ -121,6 +122,7 @@ export class TimesheetComponent implements OnInit {
         this.employeeService.saveEmployeeHours(employee);
       }
     });
-    this.router.navigate(['./departments']);
+    // Change route on submit button but not when enter name into timesheet
+    if (route) this.router.navigate(['./departments']) 
   }
 }
