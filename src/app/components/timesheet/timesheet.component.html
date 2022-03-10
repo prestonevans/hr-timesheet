@@ -13,8 +13,8 @@
             </button>
         </mat-card>
         <div class="sort-options">
-            <button *ngIf="!reversed" (click)="sort()">Sort Z-A</button>
-            <button *ngIf="reversed" (click)="sort()">Sort A-Z</button>
+            <button *ngIf="!reversed" (click)="sort()">Name Z-A</button>
+            <button *ngIf="reversed" (click)="sort()">Name A-Z</button>
         </div>
 
         <mat-card class="hours">
@@ -40,7 +40,7 @@
                     </tr>
                 </tbody>
             </table>
-            <button mat-raised-button color="primary" class="submit" (click)="submit('redirect')">Submit</button>
         </mat-card>
+        <button mat-raised-button color="primary" class="submit" (click)="submit('redirect')">Submit</button>
     </div>
 </div>

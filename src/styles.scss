@@ -33,16 +33,22 @@ body {
 	}
 }
 
-mat-card {
-    width: 70vw;
-	overflow-x: scroll;
-	background: #fff;
-	color: rgba(0, 0, 0, .87);
+mat-card,
+.sort-options,
+.submit {
 	mix-blend-mode: lighten;
 	animation-name: slideIn;
 	animation-duration: var(--animation-delay);
 	animation-fill-mode: both;
 	animation-timing-function: var(--animation-timing-function);
+}
+
+mat-card {
+    width: 70vw;
+	overflow-x: scroll;
+	background: #fff;
+	color: rgba(0, 0, 0, .87);
+
 }
 
 th {
