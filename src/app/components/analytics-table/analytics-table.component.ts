@@ -75,7 +75,11 @@ export class AnalyticsTableComponent implements OnInit {
   ngOnInit(): void {
     // this.employees = this.employeeData.filter(employee => employee.departmentId === this.departmentId);
     this.employeeService.getEmployeeHoursByDepartment(this.departmentId).subscribe((employees: Employee[]) => {
-      this.employees = employees;
+      this.employees = employees.sort((a,b) => {
+        if(a.name === b.name) return 0
+        if(a.name < b.name) return -1
+        return 1
+      });
   });
 }
 
